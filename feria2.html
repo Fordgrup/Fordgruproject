@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historial de Detecciones</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(to right, #2a9d8f, #264653);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: #fff;
+            color: #333;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #457b9d;
+            color: #fff;
+        }
+
+        a {
+            padding: 10px 20px;
+            background: #e63946;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        a:hover {
+            background: #d62828;
+        }
+    </style>
+</head>
+<body>
+    <h1>Historial de Detecciones de Gas</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Nivel de Gas (ppm)</th>
+                <th>Hora</th>
+            </tr>
+        </thead>
+        <tbody id="historial">
+            <!-- Los datos se insertarán aquí dinámicamente -->
+        </tbody>
+    </table>
+    <a href="index.html">Volver al Inicio</a>
+
+    <script>
+        // Datos simulados para el historial
+        const historial = [
+            { nivel: 450, hora: "10:00:15" },
+            { nivel: 560, hora: "10:05:30" },
+            { nivel: 600, hora: "10:15:45" },
+        ];
+
+        const historialEl = document.getElementById('historial');
+
+        // Llenar la tabla con los datos simulados
+        historial.forEach(registro => {
+            const row = document.createElement('tr');
+            row.innerHTML = <td>${registro.nivel}</td><td>${registro.hora}</td>;
+            historialEl.appendChild(row);
+        });
+    </script>
+</body>
+</html>
